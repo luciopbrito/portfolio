@@ -9,4 +9,4 @@ Projeto criado para direcionar a projetos feitos enquanto aluno no Centro Univer
 ## Desafios
 
 - Criar projeto em Angular
-- Terminar antes de 2022
+- Terminar antes de 2023
