@@ -1,7 +1,5 @@
 import React, { ReactNode, createContext, useReducer } from "react";
 
-// import { Container } from './styles';
-
 interface MenuProviderProps {
 	children: ReactNode;
 }
@@ -12,23 +10,26 @@ interface MenuContextData {
 }
 
 interface Action {
-	type: "TOGGLE_MENU";
+	type: DispatchMenuContext;
+	// eslint-disable-next-line
+	payload?: any;
 }
 
-// Define the initial state and action types
+export enum DispatchMenuContext {
+	TOGGLE_MENU = 1,
+}
+
 const initialState: MenuContextData = {
 	isMenuOpen: false,
 	toggleMenu: () => {},
 };
-const TOGGLE_MENU = "TOGGLE_MENU";
 
-// Create a reducer function
 const menuReducer = (
 	state: MenuContextData,
 	action: Action
 ): MenuContextData => {
 	switch (action.type) {
-		case TOGGLE_MENU:
+		case DispatchMenuContext.TOGGLE_MENU:
 			return { ...state, isMenuOpen: !state.isMenuOpen };
 		default:
 			return state;
@@ -40,28 +41,11 @@ export const MenuContext = createContext<MenuContextData>(
 );
 
 const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
-	// const toggleMenu = () => {
-	// 	changeMenuState("isMenuOpen", !menuState.isMenuOpen);
-	// };
-
-	// const [menuState, setMenuState] = useState<MenuContextData>({
-	// 	isMenuOpen: false,
-	// 	toggleMenu: toggleMenu,
-	// });
-
 	const [menuState, dispatch] = useReducer(menuReducer, initialState);
 
 	const toggleMenu = () => {
-		dispatch({ type: "TOGGLE_MENU" });
+		dispatch({ type: DispatchMenuContext.TOGGLE_MENU });
 	};
-
-	// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-	// const changeMenuState = (key: string, value: any) => {
-	// 	setMenuState((prev) => ({
-	// 		...prev,
-	// 		[key]: value,
-	// 	}));
-	// };
 
 	return (
 		<MenuContext.Provider
