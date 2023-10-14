@@ -10,16 +10,31 @@ export default createGlobalStyle`
         font-family: 'Open Sans', sans-serif;
     }
 
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        font-size: 1.6rem
+    }
+
     @media ${device.mobileS} {
         body {
-            font-size: 20px;
+            font-size: 3.0rem
         }
     }
 
     @media ${device.laptop} {
         body {
-            font-size: inherit;
+            font-size: 1.6rem;
         }
     }
 
+    .icon_link {
+        color: #90E0EF;
+
+        &:hover {
+            color: #00B4D8;
+        }
+    }    
 `;
