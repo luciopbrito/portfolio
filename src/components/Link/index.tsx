@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { Container } from "./styles";
+import { IChildren } from "../../global";
 
-interface LinkProps {
+interface LinkProps extends IChildren {
 	href: string;
-	children: ReactNode;
 }
 
 const Link: React.FC<LinkProps> = ({ href, children }) => {

@@ -1,8 +1,7 @@
-import React, { ReactNode, createContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
+import { IChildren } from "../global";
 
-interface MenuProviderProps {
-	children: ReactNode;
-}
+interface MenuProviderProps extends IChildren {}
 
 interface MenuContextData {
 	isMenuOpen: boolean;

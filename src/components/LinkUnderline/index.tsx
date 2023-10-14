@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { Container } from "./styles";
+import { IChildren } from "../../global";
 
-export interface LinkUnderlineProps {
+export interface LinkUnderlineProps extends IChildren {
 	color: string;
 	href: string;
-	children: ReactNode;
 }
 
 const LinkUnderline: React.FC<LinkUnderlineProps> = ({
