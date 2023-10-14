@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { Container } from "./styles";
+import { IChildren } from "../../global";
 
-interface LinkIconProps {
+interface LinkIconProps extends IChildren {
 	href: string;
 	target: string;
-	children: ReactNode;
 }
 
 const LinkIcon: React.FC<LinkIconProps> = ({ href, target, children }) => {

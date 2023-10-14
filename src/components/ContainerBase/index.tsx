@@ -1,12 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
 
 import { Container, ContainerMain } from "./styles";
+import { IChildren } from "../../global";
 
-interface ContainerBaseProps {
-	children: ReactNode;
-}
+interface ContainerBaseProps extends IChildren {}
 
 const ContainerBase: React.FC<ContainerBaseProps> = ({ children }) => {
 	return (
