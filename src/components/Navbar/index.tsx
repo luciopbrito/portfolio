@@ -1,9 +1,12 @@
 import { Container } from "./styles";
 import LinkUnderline from "../LinkUnderline";
+import { IClassName } from "../../global";
 
-const Navbar: React.FC = () => {
+interface NavbarProps extends IClassName {}
+
+const Navbar: React.FC<NavbarProps> = ({ className }) => {
 	return (
-		<Container>
+		<Container className={className}>
 			<li>
 				<LinkUnderline href="#start" color="white">
 					Inicio
