@@ -10,7 +10,7 @@ export const Container = styled.header`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 24px 100px;
+		padding: 2.4rem 10rem;
 
 		.logo {
 			color: white;
@@ -30,18 +30,18 @@ export const HeaderNavBar = styled.div`
 				display: flex;
 
 				position: absolute;
-				top: 93px;
+				top: 9.3rem;
 				left: 0;
-				width: 100vw;
+				width: 100%;
 				background-color: blue;
 				justify-content: center;
 				align-items: center;
-				gap: 20px;
+				gap: 2rem;
 
 				animation-name: openMenu;
 				animation-duration: 2s;
 				animation-direction: normal;
-				height: 100px;
+				height: 10rem;
 			}
 		}
 	}
@@ -63,16 +63,16 @@ export const HeaderNavBar = styled.div`
 	}
 
 	.toggle-menu {
-		height: 30px;
+		height: 3rem;
 	}
 
 	@keyframes openMenu {
 		from {
-			height: 0px;
+			height: 0rem;
 			opacity: 0;
 		}
 		to {
-			height: 100px;
+			height: 10rem;
 			opacity: 1;
 		}
 	}

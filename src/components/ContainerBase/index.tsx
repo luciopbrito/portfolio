@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
 import Header from "../Header";
+import Footer from "../Footer";
 
-// import { Container } from './styles';
+import { Container, ContainerMain } from "./styles";
 
 interface ContainerBaseProps {
 	children: ReactNode;
@@ -10,9 +11,11 @@ interface ContainerBaseProps {
 const ContainerBase: React.FC<ContainerBaseProps> = ({ children }) => {
 	return (
 		<>
-			<Header />
-			{children}
-			{/* <Footer /> */}
+			<Container>
+				<Header className="header" />
+				<ContainerMain className="main">{children}</ContainerMain>
+				<Footer className="footer" />
+			</Container>
 		</>
 	);
 };
