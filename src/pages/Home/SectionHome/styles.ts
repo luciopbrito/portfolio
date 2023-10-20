@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../../assets/styles/devices";
+import { Colors } from "../../../assets/styles/colors";
 
 interface ImageContainerProps {
 	img: string;
@@ -63,11 +64,11 @@ const TextColorChanging = styled.h2`
 	background-size: 100%;
 	background-image: linear-gradient(
 		45deg,
-		#03045e,
-		#0077b6,
-		#00b4d8,
-		#90e0ef,
-		#caf0f8
+		${Colors.DarkBlue},
+		${Colors.LightBlue},
+		${Colors.Cyan},
+		${Colors.LightCyan},
+		${Colors.BlueWhite}
 	);
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -82,55 +83,55 @@ const TextColorChanging = styled.h2`
 		0% {
 			background-image: linear-gradient(
 				45deg,
-				#03045e,
-				#0077b6,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite}
 			);
 		}
 
 		20% {
 			background-image: linear-gradient(
 				45deg,
-				#caf0f8,
-				#03045e,
-				#0077b6,
-				#00b4d8,
-				#90e0ef
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan}
 			);
 		}
 
 		40% {
 			background-image: linear-gradient(
 				45deg,
-				#90e0ef,
-				#caf0f8,
-				#03045e,
-				#0077b6,
-				#00b4d8
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan}
 			);
 		}
 
 		80% {
 			background-image: linear-gradient(
 				45deg,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8,
-				#03045e,
-				#0077b6
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue}
 			);
 		}
 
 		100% {
 			background-image: linear-gradient(
 				45deg,
-				#0077b6,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8,
-				#03045e
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue}
 			);
 		}
 	}

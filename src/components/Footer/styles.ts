@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { device } from "../../assets/styles/devices";
+import { Colors } from "../../assets/styles/colors";
 
 export const Container = styled.footer`
-	background-color: #03045e;
+	background-color: ${Colors.DarkBlue};
 	color: white;
 	padding: 3.4rem 20rem;
 	display: flex;
@@ -60,6 +61,7 @@ export const Container = styled.footer`
 
 	@media ${device.mobileS} {
 		gap: 3.4rem;
+		padding: 3.4rem 10rem 3.4rem 10rem;
 	}
 
 	@media ${device.laptop} {

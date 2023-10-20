@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../assets/styles/devices";
+import { Colors } from "../../assets/styles/colors";
 
 const Container = styled.button`
 	display: flex;
@@ -9,14 +10,15 @@ const Container = styled.button`
 	border-radius: 1rem;
 	border: 0;
 	padding: 0.3rem 2rem;
-	background-color: #90e0ef;
+	background-color: ${Colors.LightCyan};
+	line-height: normal;
 
 	&:hover {
-		background-color: #00b4d8;
+		background-color: ${Colors.Cyan};
 	}
 
 	&:active {
-		background-color: #0077b6;
+		background-color: ${Colors.LightBlue};
 	}
 
 	@media ${device.mobileS} {
@@ -30,12 +32,15 @@ const Container = styled.button`
 
 const Text = styled.span`
 	color: inherit;
+	font-weight: 600;
+	font-family: "Inter", sans-serif;
 	font-size: 2rem;
 `;
 
 const Icon = styled.span`
 	color: inherit;
-	/* font-size: 2rem; */
+	font-size: 2rem;
+	line-height: 0.5rem;
 `;
 
 export const S = {

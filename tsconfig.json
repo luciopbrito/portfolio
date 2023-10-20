@@ -22,7 +22,8 @@
 
 		/* Global Paths */
 		"paths": {
-			"@imgs/*": ["./src/assets/imgs/*"]
+			"@imgs/*": ["./src/assets/imgs/*"],
+			"@documents/*": ["./src/assets/documents/*"]
 		}
 	},
 	"include": ["src"],
