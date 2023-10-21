@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import { device } from "../../assets/styles/devices";
+import { Colors } from "../../assets/styles/colors";
 
 export const Container = styled.header`
 	width: 100%;
+	z-index: 1;
 	position: fixed;
-	background-color: #03045e;
+	display: flex;
+	justify-content: center;
+	background-color: ${Colors.DarkBlue};
 
 	.container_header {
+		max-width: 111.6rem;
+		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

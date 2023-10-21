@@ -6,6 +6,9 @@ export default defineConfig({
 	plugins: [react()],
 	base: "/portfolio",
 	resolve: {
-		alias: { "@imgs": `${__dirname}/src/assets/imgs/` },
+		alias: {
+			"@imgs": `${__dirname}/src/assets/imgs/`,
+			"@documents": `${__dirname}/src/assets/documents/`,
+		},
 	},
 });

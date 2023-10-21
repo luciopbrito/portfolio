@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { device } from "./devices";
+import { Colors } from "./colors";
 
 export default createGlobalStyle`
     *{
@@ -15,10 +16,6 @@ export default createGlobalStyle`
         scroll-behavior: smooth;
     }
 
-    body {
-        font-size: 1.6rem
-    }
-
     @media ${device.mobileS} {
         body {
             font-size: 3.0rem
@@ -32,10 +29,17 @@ export default createGlobalStyle`
     }
 
     .icon_link {
-        color: #90E0EF;
+        color: ${Colors.LightCyan};
 
         &:hover {
-            color: #00B4D8;
+            color: ${Colors.Cyan};
         }
     }    
+
+    p {
+        font-family: 'Roboto Slab', serif;
+        font-style: normal;
+        font-weight: 400;
+        text-align: justify;
+    }
 `;

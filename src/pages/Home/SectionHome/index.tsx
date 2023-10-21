@@ -13,7 +13,7 @@ const SectionHome: React.FC<SectionHomeProps> = () => {
 
 	return (
 		<S.Container id="start">
-			<S.ImageContainer img={imgLucio} />
+			<S.ImageContainer size="large" img={imgLucio} />
 			<S.TextBoxContainer>
 				<div>
 					<S.TextBoxTitle>Lúcio Brito</S.TextBoxTitle>

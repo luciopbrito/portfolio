@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../../assets/styles/devices";
-
-interface ImageContainerProps {
-	img: string;
-}
+import { Colors } from "../../../assets/styles/colors";
+import { S as FromHome } from "../styles";
 
 const Container = styled.div`
 	display: flex;
@@ -21,35 +19,22 @@ const Container = styled.div`
 	}
 `;
 
-const ImageContainer = styled.div<ImageContainerProps>`
-	border-radius: 4.9rem;
-
-	background-image: url(${(p) => p.img});
-	width: 44.4rem;
-	height: 52.4rem;
-`;
-
 const TextBoxContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	flex: 0 1 auto;
 
 	@media ${device.mobileS} {
 		align-items: center;
 		gap: 4rem;
+		width: 100%;
 	}
 
 	@media ${device.laptop} {
 		gap: 2rem;
+		width: auto;
 	}
-`;
-
-const TextBoxTitle = styled.h1`
-	font-size: 5rem;
-`;
-
-const TextBoxSubtitle = styled.h2`
-	font-size: 2.5rem;
 `;
 
 const TextColorChanging = styled.h2`
@@ -63,11 +48,11 @@ const TextColorChanging = styled.h2`
 	background-size: 100%;
 	background-image: linear-gradient(
 		45deg,
-		#03045e,
-		#0077b6,
-		#00b4d8,
-		#90e0ef,
-		#caf0f8
+		${Colors.DarkBlue},
+		${Colors.LightBlue},
+		${Colors.Cyan},
+		${Colors.LightCyan},
+		${Colors.BlueWhite}
 	);
 	background-clip: text;
 	-webkit-background-clip: text;
@@ -82,55 +67,55 @@ const TextColorChanging = styled.h2`
 		0% {
 			background-image: linear-gradient(
 				45deg,
-				#03045e,
-				#0077b6,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite}
 			);
 		}
 
 		20% {
 			background-image: linear-gradient(
 				45deg,
-				#caf0f8,
-				#03045e,
-				#0077b6,
-				#00b4d8,
-				#90e0ef
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan}
 			);
 		}
 
 		40% {
 			background-image: linear-gradient(
 				45deg,
-				#90e0ef,
-				#caf0f8,
-				#03045e,
-				#0077b6,
-				#00b4d8
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue},
+				${Colors.Cyan}
 			);
 		}
 
 		80% {
 			background-image: linear-gradient(
 				45deg,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8,
-				#03045e,
-				#0077b6
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue},
+				${Colors.LightBlue}
 			);
 		}
 
 		100% {
 			background-image: linear-gradient(
 				45deg,
-				#0077b6,
-				#00b4d8,
-				#90e0ef,
-				#caf0f8,
-				#03045e
+				${Colors.LightBlue},
+				${Colors.Cyan},
+				${Colors.LightCyan},
+				${Colors.BlueWhite},
+				${Colors.DarkBlue}
 			);
 		}
 	}
@@ -138,9 +123,9 @@ const TextColorChanging = styled.h2`
 
 export const S = {
 	Container,
-	ImageContainer,
+	ImageContainer: FromHome.ImageContainer,
 	TextBoxContainer,
-	TextBoxTitle,
-	TextBoxSubtitle,
+	TextBoxTitle: FromHome.TextBoxTitle,
+	TextBoxSubtitle: FromHome.TextBoxSubtitle,
 	TextColorChanging,
 };

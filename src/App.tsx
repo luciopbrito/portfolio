@@ -1,13 +1,13 @@
 import React from "react";
 import ContainerBase from "./components/ContainerBase";
 import MenuProvider from "./contexts/Menu";
-import SectionHome from "./pages/Home/SectionHome";
+import Home from "./pages/Home";
 
 const App: React.FC = () => {
 	return (
 		<MenuProvider>
 			<ContainerBase>
-				<SectionHome />
+				<Home />
 			</ContainerBase>
 		</MenuProvider>
 	);
