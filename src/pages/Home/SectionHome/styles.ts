@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../../assets/styles/devices";
 import { Colors } from "../../../assets/styles/colors";
-
-interface ImageContainerProps {
-	img: string;
-}
+import { S as FromHome } from "../styles";
 
 const Container = styled.div`
 	display: flex;
@@ -22,35 +19,22 @@ const Container = styled.div`
 	}
 `;
 
-const ImageContainer = styled.div<ImageContainerProps>`
-	border-radius: 4.9rem;
-
-	background-image: url(${(p) => p.img});
-	width: 44.4rem;
-	height: 52.4rem;
-`;
-
 const TextBoxContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	flex: 0 1 auto;
 
 	@media ${device.mobileS} {
 		align-items: center;
 		gap: 4rem;
+		width: 100%;
 	}
 
 	@media ${device.laptop} {
 		gap: 2rem;
+		width: auto;
 	}
-`;
-
-const TextBoxTitle = styled.h1`
-	font-size: 5rem;
-`;
-
-const TextBoxSubtitle = styled.h2`
-	font-size: 2.5rem;
 `;
 
 const TextColorChanging = styled.h2`
@@ -139,9 +123,9 @@ const TextColorChanging = styled.h2`
 
 export const S = {
 	Container,
-	ImageContainer,
+	ImageContainer: FromHome.ImageContainer,
 	TextBoxContainer,
-	TextBoxTitle,
-	TextBoxSubtitle,
+	TextBoxTitle: FromHome.TextBoxTitle,
+	TextBoxSubtitle: FromHome.TextBoxSubtitle,
 	TextColorChanging,
 };
