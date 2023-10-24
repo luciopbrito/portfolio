@@ -10,12 +10,6 @@ const Container = styled.div`
 	gap: 4rem;
 `;
 
-const ContainerTitles = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-`;
-
 const ContainerContent = styled.div`
 	display: flex;
 	gap: 11.7rem;
@@ -51,7 +45,7 @@ const ContainerContent = styled.div`
 
 export const S = {
 	Container,
-	ContainerTitles,
+	ContainerTitles: FromHome.ContainerTitles,
 	Title: FromHome.TextBoxTitle,
 	Subtitle: FromHome.TextBoxSubtitle,
 	ImageContainer: FromHome.ImageContainer,
