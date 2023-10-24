@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../assets/styles/devices";
 
 export const Container = styled.body`
 	display: grid;
@@ -25,4 +26,12 @@ export const Container = styled.body`
 
 export const ContainerMain = styled.main`
 	margin: 8.5rem 0 0 0;
+
+	@media ${device.mobileS} {
+		padding: 0 3rem;
+	}
+
+	@media ${device.laptop} {
+		padding: 0;
+	}
 `;

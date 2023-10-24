@@ -26,6 +26,12 @@ const TextBoxSubtitle = styled.h2`
 	font-size: 2.5rem;
 `;
 
+const ContainerTitles = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`;
+
 const ImageContainer = styled.div<ImageContainerProps>`
 	border-radius: 4.9rem;
 
@@ -41,4 +47,5 @@ export const S = {
 	TextBoxTitle,
 	TextBoxSubtitle,
 	ImageContainer,
+	ContainerTitles,
 };

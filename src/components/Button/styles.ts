@@ -15,6 +15,7 @@ const Container = styled.button`
 
 	&:hover {
 		background-color: ${Colors.Cyan};
+		cursor: pointer;
 	}
 
 	&:active {
