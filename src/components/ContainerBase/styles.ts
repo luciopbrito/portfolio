@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../assets/styles/devices";
 
-export const Container = styled.body`
+export const Container = styled.div`
 	display: grid;
 	grid-template-columns: 100%;
 	height: 100%;
