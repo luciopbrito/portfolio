@@ -37,7 +37,7 @@ const SectionAboutMe: React.FC = () => {
 						</Button.Icon>
 					</Button.Container>
 				</div>
-				<S.ImageContainer size="medium" img={imgLucio} />
+				<S.ImageContainer $size="medium" $img={imgLucio} />
 			</S.ContainerContent>
 		</S.Container>
 	);

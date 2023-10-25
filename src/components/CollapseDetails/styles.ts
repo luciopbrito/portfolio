@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { reactSvgComponentToMarkupString } from "../../global";
 
 interface TitleProps {
-	iconDefault: React.FC;
-	iconOpen: React.FC;
+	$iconDefault: React.FC;
+	$iconOpen: React.FC;
 }
 
 const Container = styled.details`
@@ -24,11 +24,11 @@ const Title = styled.summary<TitleProps>`
 	}
 
 	.icon::after {
-		content: url(${(p) => reactSvgComponentToMarkupString(p.iconDefault)});
+		content: url(${(p) => reactSvgComponentToMarkupString(p.$iconDefault)});
 	}
 
 	${Container}[open] & .icon::after {
-		content: url(${(p) => reactSvgComponentToMarkupString(p.iconOpen)});
+		content: url(${(p) => reactSvgComponentToMarkupString(p.$iconOpen)});
 	}
 
 	&::marker {
