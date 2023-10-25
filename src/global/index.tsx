@@ -17,7 +17,6 @@ export interface IOnClick {
 export const reactSvgComponentToMarkupString = (
 	// eslint-disable-next-line
 	Component: React.ComponentType<any>
-	// eslint-disable-next-line
 ): string =>
 	`data:image/svg+xml,${encodeURIComponent(
 		renderToStaticMarkup(createElement(Component))

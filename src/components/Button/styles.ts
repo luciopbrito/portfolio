@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { device } from "../../assets/styles/devices";
 import { Colors } from "../../assets/styles/colors";
 
+export interface TextProps {
+	$color?: string;
+}
+
 const Container = styled.button`
 	display: flex;
 	justify-content: center;
@@ -31,12 +35,16 @@ const Container = styled.button`
 	}
 `;
 
-const Text = styled.span`
-	color: inherit;
+const Text = styled.span<TextProps>`
 	font-weight: 600;
 	font-family: "Inter", sans-serif;
 	font-size: 2rem;
+	color: ${(p) => p.$color};
 `;
+
+Text.defaultProps = {
+	$color: "black",
+};
 
 const Icon = styled.span`
 	color: inherit;
