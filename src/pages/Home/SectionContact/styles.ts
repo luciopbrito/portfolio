@@ -54,6 +54,11 @@ const ContainerContent = styled.div`
 		link:hover {
 			color: ${Colors.DarkBlue};
 		}
+
+		.icon {
+			color: ${Colors.Cyan};
+			font-size: 2.5rem;
+		}
 	}
 
 	@media ${device.mobileS} {
