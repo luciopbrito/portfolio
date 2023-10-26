@@ -83,6 +83,6 @@ export const S = {
 	Skill,
 	SkillTitle,
 	SkillList,
-	Title: FromHome.TextBoxTitle,
-	Subtitle: FromHome.TextBoxSubtitle,
+	Title: FromHome.Title,
+	Subtitle: FromHome.Subtitle,
 };

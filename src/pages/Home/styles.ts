@@ -18,12 +18,31 @@ const Container = styled.div`
 	}
 `;
 
-const TextBoxTitle = styled.h1`
+const Title = styled.h1`
 	font-size: 5rem;
 `;
 
-const TextBoxSubtitle = styled.h2`
+const TitleBold = styled.h1`
+	font-size: 5rem;
+	font-weight: bold;
+`;
+
+const Subtitle = styled.h2`
 	font-size: 2.5rem;
+`;
+
+const SubtitleBold = styled.h2`
+	font-size: 2.5rem;
+	font-weight: bold;
+`;
+
+const Subtitle2 = styled.h3`
+	font-size: 2rem;
+`;
+
+const Subtitle2Bold = styled.h3`
+	font-size: 2rem;
+	font-weight: bold;
 `;
 
 const ContainerTitles = styled.div`
@@ -44,8 +63,12 @@ const ImageContainer = styled.div<ImageContainerProps>`
 
 export const S = {
 	Container,
-	TextBoxTitle,
-	TextBoxSubtitle,
+	Title,
+	TitleBold,
+	Subtitle,
+	SubtitleBold,
+	Subtitle2,
+	Subtitle2Bold,
 	ImageContainer,
 	ContainerTitles,
 };

@@ -16,7 +16,7 @@ const SectionHome: React.FC<SectionHomeProps> = () => {
 			<S.ImageContainer $size="large" $img={imgLucio} />
 			<S.TextBoxContainer>
 				<div>
-					<S.TextBoxTitle>Lúcio Brito</S.TextBoxTitle>
+					<S.Title>Lúcio Brito</S.Title>
 					<S.TextColorChanging>Desenvolvedor Web</S.TextColorChanging>
 				</div>
 				<p>Apaixonado por tecnologia. A vida precisa ser vivida!</p>
