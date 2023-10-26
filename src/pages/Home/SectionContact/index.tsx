@@ -7,7 +7,7 @@ import {
 	AiOutlinePhone,
 } from "react-icons/ai";
 import { BiMap } from "react-icons/bi";
-import { Colors } from "../../../assets/styles/colors";
+
 const SectionContact: React.FC = () => {
 	return (
 		<S.Container>
@@ -17,7 +17,7 @@ const SectionContact: React.FC = () => {
 				<S.ContainerContent>
 					<div className="item">
 						<div>
-							<AiOutlinePhone style={{ color: Colors.Cyan }} />
+							<AiOutlinePhone className="icon" />
 						</div>
 						<div>
 							<S.Subtitle>Telefone</S.Subtitle>
@@ -26,7 +26,7 @@ const SectionContact: React.FC = () => {
 					</div>
 					<div className="item">
 						<div>
-							<AiFillLinkedin style={{ color: Colors.Cyan }} />
+							<AiFillLinkedin className="icon" />
 						</div>
 						<div>
 							<S.Subtitle>LinkedIn</S.Subtitle>
@@ -37,7 +37,7 @@ const SectionContact: React.FC = () => {
 					</div>
 					<div className="item">
 						<div>
-							<AiOutlineMail style={{ color: Colors.Cyan }} />
+							<AiOutlineMail className="icon" />
 						</div>
 						<div>
 							<S.Subtitle>Email</S.Subtitle>
@@ -46,7 +46,7 @@ const SectionContact: React.FC = () => {
 					</div>
 					<div className="item">
 						<div>
-							<AiFillGithub style={{ color: Colors.Cyan }} />
+							<AiFillGithub className="icon" />
 						</div>
 						<div>
 							<S.Subtitle>GitHub</S.Subtitle>
@@ -57,7 +57,7 @@ const SectionContact: React.FC = () => {
 					</div>
 					<div className="item">
 						<div>
-							<BiMap style={{ color: Colors.Cyan }} />
+							<BiMap className="icon" />
 						</div>
 						<div>
 							<S.Subtitle>Localização</S.Subtitle>
