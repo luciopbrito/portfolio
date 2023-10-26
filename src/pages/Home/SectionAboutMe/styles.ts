@@ -46,8 +46,8 @@ const ContainerContent = styled.div`
 export const S = {
 	Container,
 	ContainerTitles: FromHome.ContainerTitles,
-	Title: FromHome.TextBoxTitle,
-	Subtitle: FromHome.TextBoxSubtitle,
+	Title: FromHome.Title,
+	Subtitle: FromHome.Subtitle,
 	ImageContainer: FromHome.ImageContainer,
 	ContainerContent,
 };

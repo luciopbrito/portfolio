@@ -4,6 +4,7 @@ import SectionHome from "./SectionHome";
 import SectionAboutMe from "./SectionAboutMe";
 import SectionSkills from "./SectionSkills";
 import SectionProjects from "./SectionProjects";
+import SectionContact from "./SectionContact";
 
 interface HomeProps {}
 
@@ -14,6 +15,7 @@ const Home: React.FC<HomeProps> = () => {
 			<SectionAboutMe />
 			<SectionSkills />
 			<SectionProjects />
+			<SectionContact />
 		</S.Container>
 	);
 };

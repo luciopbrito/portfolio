@@ -54,7 +54,7 @@ const Text = styled.p`
 
 export const S = {
 	Container,
-	Title: FromHome.TextBoxTitle,
+	Title: FromHome.Title,
 	ProjectContainer,
 	ProjectImage,
 	TextContainer,

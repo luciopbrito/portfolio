@@ -125,7 +125,7 @@ export const S = {
 	Container,
 	ImageContainer: FromHome.ImageContainer,
 	TextBoxContainer,
-	TextBoxTitle: FromHome.TextBoxTitle,
-	TextBoxSubtitle: FromHome.TextBoxSubtitle,
+	Title: FromHome.Title,
+	Subtitle: FromHome.Subtitle,
 	TextColorChanging,
 };
