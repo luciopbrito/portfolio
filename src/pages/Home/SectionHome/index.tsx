@@ -8,7 +8,7 @@ interface SectionHomeProps {}
 
 const SectionHome: React.FC<SectionHomeProps> = () => {
 	const handleGoContact = () => {
-		// go section contact
+		window.open("#contact", "_self");
 	};
 
 	return (

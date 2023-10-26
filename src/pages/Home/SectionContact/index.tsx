@@ -10,7 +10,7 @@ import { BiMap } from "react-icons/bi";
 
 const SectionContact: React.FC = () => {
 	return (
-		<S.Container>
+		<S.Container id="contact">
 			<S.Title>Contato</S.Title>
 			<S.ContainerContact>
 				<S.ContentTitle>Entre em contato comigo!</S.ContentTitle>
