@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "github.vscode-github-actions",
+        "gruntfuggly.todo-tree",
+        "formulahendry.auto-rename-tag",
+        "streetsidesoftware.code-spell-checker-portuguese-brazilian",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens"
+    ]
+}
