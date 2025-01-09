@@ -37,5 +37,5 @@ jobs:
                 # Ensure the dist directory exists
                 ls -la dist
                 # Run the SCP command to copy the dist folder to the remote server
-                scp -r dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio
+                scp -i ${{ secrets.SSH_KEY }} -r dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio
                     
