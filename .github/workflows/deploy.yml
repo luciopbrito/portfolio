@@ -33,6 +33,7 @@ jobs:
                 host: ${{ secrets.SSH_HOST }}
                 username: ${{ secrets.SSH_USERNAME }}
                 key: ${{ secrets.SSH_KEY }}
+                password: ${{ secrets.PASSWORD }}
                 source: "./dist/*"
                 target: /var/www/portfolio
                     
