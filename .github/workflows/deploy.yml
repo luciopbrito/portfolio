@@ -36,5 +36,5 @@ jobs:
               #   password: ${{ secrets.PASSWORD }}
               #   source: "./dist/*"
               #   target: /var/www/portfolio
-              run: spc -i ${{ secrets.SSS_KEY }} ./dist/* ${{ secrets.SSS_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio/
+              run: scp -i ${{ secrets.SSH_KEY }} ./dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio/
                     
