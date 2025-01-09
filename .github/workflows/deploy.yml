@@ -27,15 +27,13 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: Set up SSH
-              uses: webfactory/ssh-agent@v0.5.3
+            - name: SCP to VPS
+              uses: nogsantos/scp-deploy@master
               with:
-                ssh-private-key: ${{ secrets.SSH_KEY }}
-      
-            - name: Copy files using SCP
-              run: |
-                # Ensure the dist directory exists
-                ls -la dist
-                # Run the SCP command to copy the dist folder to the remote server
-                scp -i ${{ secrets.SSH_KEY }} -r dist/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio
+                src: ./dist/*
+                host: ${{ secrets.SSH_HOST }}
+                remote: ${{ secrets.SSH_DIR }}
+                port: ${{ secrets.SSH_PORT }}
+                user: ${{ secrets.SSH_USERNAME }}
+                key: ${{ secrets.SSH_KEY }}
                     
