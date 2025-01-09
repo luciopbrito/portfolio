@@ -32,7 +32,7 @@ jobs:
               with:
                 src: ./dist/*
                 host: ${{ secrets.SSH_HOST }}
-                remote: ${{ secrets.SSH_DIR }}
+                remote: ${{ secrets.SSH_DIR_SCP }}
                 port: ${{ secrets.SSH_PORT }}
                 user: ${{ secrets.SSH_USERNAME }}
                 key: ${{ secrets.SSH_KEY }}
