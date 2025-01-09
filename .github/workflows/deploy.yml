@@ -28,12 +28,11 @@ jobs:
               uses: actions/checkout@v2
 
             - name: SCP to VPS
-              uses: nogsantos/scp-deploy@master
+              uses: easingthemes/ssh-deploy@main
               with:
-                src: ./dist/*
-                host: ${{ secrets.SSH_HOST }}
-                remote: ${{ secrets.SSH_DIR_SCP }}
-                port: ${{ secrets.SSH_PORT }}
-                user: ${{ secrets.SSH_USERNAME }}
-                key: ${{ secrets.SSH_KEY }}
-                    
+                SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
+                ARGS: "-rlgoDzvc --delete"
+                SOURCE: "dist/"
+                REMOTE_HOST: ${{secrets.SSH_HOST}}
+                REMOTE_USER: ${{secrets.SSH_USERNAME}}
+                TARGET: ${{secrets.SSH_DIR_SCP}}  
