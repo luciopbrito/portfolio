@@ -28,12 +28,13 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Send folder dist to VPS
-              uses: appleboy/scp-action@v0.1.7
-              with:
-                host: ${{ secrets.SSH_HOST }}
-                username: ${{ secrets.SSH_USERNAME }}
-                key: ${{ secrets.SSH_KEY }}
-                password: ${{ secrets.PASSWORD }}
-                source: "./dist/*"
-                target: /var/www/portfolio
+              # uses: appleboy/scp-action@v0.1.7
+              # with:
+              #   host: ${{ secrets.SSH_HOST }}
+              #   username: ${{ secrets.SSH_USERNAME }}
+              #   key: ${{ secrets.SSH_KEY }}
+              #   password: ${{ secrets.PASSWORD }}
+              #   source: "./dist/*"
+              #   target: /var/www/portfolio
+              run: spc -i ${{ secrets.SSS_KEY }} ./dist/* ${{ secrets.SSS_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/portfolio/
                     
