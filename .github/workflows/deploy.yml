@@ -24,8 +24,8 @@ jobs:
     #     needs: build
 
         # steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+            # - name: Checkout repository
+            #   uses: actions/checkout@v2
 
             - name: check if exist dist folder
               run: ls -l dist/
