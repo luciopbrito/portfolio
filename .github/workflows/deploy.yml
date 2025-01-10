@@ -27,6 +27,9 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
+            - name: check if exist dist folder
+              run: ls -l dist/
+
             - name: Deploy to DigitalOcean
               env:
                 DO_SSH_KEY: ${{ secrets.SSH_KEY }}  # Set your SSH private key as a secret
