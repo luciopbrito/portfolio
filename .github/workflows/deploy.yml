@@ -32,13 +32,14 @@ jobs:
                 DO_SSH_KEY: ${{ secrets.SSH_KEY }}  # Set your SSH private key as a secret
                 DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
                 DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
+                DO_FOLDER: ${{ secrets.SSH_FOLDER }}  # The SSH user for your server (e.g., 'root' or 'username')
               run: |
                 # Save the private SSH key to a file
                 echo "$DO_SSH_KEY" > /tmp/id_rsa
                 chmod 600 /tmp/id_rsa
                 
                 # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" ./dist/ $DO_USER@$DO_HOST:/tmp/portfolio  # Adjust path as necessary
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" ./dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
         
                 # Clean up
                 rm /tmp/id_rsa
