@@ -34,4 +34,11 @@ jobs:
                 SOURCE: "dist/"
                 REMOTE_HOST: ${{secrets.SSH_HOST}}
                 REMOTE_USER: ${{secrets.SSH_USERNAME}}
-                SCRIPT_BEFORE: ls
+                SCRIPT_BEFORE: |
+                  whoami
+                  ls -al
+                SCRIPT_AFTER: |
+                  whoami
+                  ls -al
+                  echo $RSYNC_STDOUT
+        
