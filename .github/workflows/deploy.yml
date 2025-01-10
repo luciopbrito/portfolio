@@ -19,13 +19,24 @@ jobs:
                 node-version: '18.18.0'
             - run: npm ci
             - run: npm run build
-    # deploy:
-    #     runs-on: ubuntu-latest
-    #     needs: build
 
-        # steps:
-            # - name: Checkout repository
-            #   uses: actions/checkout@v2
+            - name: Upload dist folder as artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: dist
+                path: dist/
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+
+            - name: Download dist artifact
+              uses: actions/download-artifact@v2
+              with:
+                name: dist
 
             - name: check if exist dist folder
               run: ls -l dist/
@@ -46,7 +57,7 @@ jobs:
                 rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
                 
                 # restart webserver
-                ssh -i /tmp/id_rsa $DO_USER@$DO_HOST '$DO_RESTART_SERVER'
+                ssh -i /tmp/id_rsa $DO_USER@$DO_HOST "$DO_RESTART_SERVER"
         
                 # Clean up
                 rm /tmp/id_rsa
