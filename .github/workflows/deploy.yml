@@ -46,7 +46,7 @@ jobs:
                 rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
                 
                 # restart webserver
-                ssh -i /tmp/id_rsa $DO_USER@$DO_HOST && $DO_RESTART_SERVER 
+                ssh -i /tmp/id_rsa $DO_USER@$DO_HOST $DO_RESTART_SERVER 
         
                 # Clean up
                 rm /tmp/id_rsa
