@@ -27,18 +27,19 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v2
 
-            - name: SCP to VPS
-              uses: easingthemes/ssh-deploy@main
-              with:
-                SSH_PRIVATE_KEY: ${{secrets.SSH_KEY}}
-                SOURCE: "dist/"
-                REMOTE_HOST: ${{secrets.SSH_HOST}}
-                REMOTE_USER: ${{secrets.SSH_USERNAME}}
-                SCRIPT_BEFORE: |
-                  whoami
-                  ls -al
-                SCRIPT_AFTER: |
-                  whoami
-                  ls -al
-                  echo $RSYNC_STDOUT
+            - name: Deploy to DigitalOcean
+              env:
+                DO_SSH_KEY: ${{ secrets.SSH_KEY }}  # Set your SSH private key as a secret
+                DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
+                DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
+              run: |
+                # Save the private SSH key to a file
+                echo "$DO_SSH_KEY" > /tmp/id_rsa
+                chmod 600 /tmp/id_rsa
+                
+                # Copy the contents of the dist folder to the server
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" ./dist/ $DO_USER@$DO_HOST:/var/www/html  # Adjust path as necessary
+        
+                # Clean up
+                rm /tmp/id_rsa
         
