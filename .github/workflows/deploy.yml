@@ -39,7 +39,7 @@ jobs:
                 chmod 600 /tmp/id_rsa
                 
                 # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" /dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
         
                 # Clean up
                 rm /tmp/id_rsa
