@@ -19,10 +19,13 @@ const SectionSkills: React.FC = () => {
 						</span>
 					</CollapseDetails.Title>
 					<S.SkillList>
+						<li>React Js 17, 18</li>
+						<li>Angular 11, 12</li>
 						<li>HTML5</li>
 						<li>CSS3</li>
 						<li>JavaScript</li>
 						<li>JQuery</li>
+						<li>HubSpot</li>
 					</S.SkillList>
 				</CollapseDetails.Container>
 				<CollapseDetails.Container>
