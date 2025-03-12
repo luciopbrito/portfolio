@@ -46,7 +46,7 @@ jobs:
                 DO_SSH_KEY: ${{ secrets.SSH_KEY }}  # Set your SSH private key as a secret
               run: |
                 # Save the private SSH key to a file
-                echo "$DO_SSH_KEY" > /tmp/id_rsa
+                echo -e "$DO_SSH_KEY" > /tmp/id_rsa
                 chmod 600 /tmp/id_rsa
                 
             - name: Copy the contents of the dist folder to the server
@@ -56,7 +56,7 @@ jobs:
                 DO_FOLDER: ${{ secrets.SSH_FOLDER }}  # The SSH user for your server (e.g., 'root' or 'username')
               run: |
                 # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
                 
             - name: Restart Web Server 
               env: 
