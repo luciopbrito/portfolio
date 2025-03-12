@@ -42,21 +42,28 @@ jobs:
               run: ls -R dist
 
             - name: Deploy to DigitalOcean
-              env:
-                DO_SSH_KEY: ${{ secrets.SSH_KEY }}  # Set your SSH private key as a secret
               run: |
                 # Save the private SSH key to a file
-                echo -e "$DO_SSH_KEY" > /tmp/id_rsa
+                echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
                 chmod 600 /tmp/id_rsa
                 
             - name: Copy the contents of the dist folder to the server
-              env:
-                DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
-                DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
-                DO_FOLDER: ${{ secrets.SSH_FOLDER }}  # The SSH user for your server (e.g., 'root' or 'username')
-              run: |
-                # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
+              uses: easingthemes/ssh-deploy@main
+              with:
+                SSH_PRIVATE_KEY: ${{secrets.SERVER_SSH_KEY}}
+                ARGS: "-rlgoDzvc -- delete"
+                SOURCE: "dist/"
+                REMOTE_HOST: ${{ secrets.SSH_HOST }}
+                REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+                # REMOTE_PORT: ${{vars. REMOTE_PORT}}
+                TARGET: ${{ secrets.SSH_FOLDER }}
+            #   env:
+            #     DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
+            #     DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
+            #     DO_FOLDER: ${{ secrets.SSH_FOLDER }}  # The SSH user for your server (e.g., 'root' or 'username')
+            #   run: |
+            #     # Copy the contents of the dist folder to the server
+            #     rsync -avz --delete -e "ssh -i /tmp/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
                 
             - name: Restart Web Server 
               env: 
