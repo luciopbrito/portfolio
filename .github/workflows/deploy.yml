@@ -41,37 +41,32 @@ jobs:
             - name: Display structure of downloaded files
               run: ls -R dist
 
-            # - name: Deploy to DigitalOcean
-            #   run: |
-            #     # Save the private SSH key to a file
-            #     echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
-            #     chmod 600 /tmp/id_rsa
+            - name: save ssh key
+              run: |
+                # Save the private SSH key to a file
+                echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
+                chmod 600 /tmp/id_rsa
                 
-            - name: Copy the contents of the dist folder to the server
-              uses: easingthemes/ssh-deploy@main
-              with:
-                SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-                ARGS: "-rlgoDzvc -- delete"
-                SOURCE: "dist/"
-                REMOTE_HOST: ${{ secrets.SSH_HOST }}
-                REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-                REMOTE_PORT: ${{ secrets.REMOTE_PORT}}
-                TARGET: ${{ secrets.SSH_FOLDER }}
-                SCRIPT_BEFORE: |
-                    whoami
-                    ls -al
-                SCRIPT_AFTER: |
-                    whoami
-                    ls -al
-                    echo $RSYNC_STDOUT
-
-            #   env:
-            #     DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
-            #     DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
-            #     DO_FOLDER: ${{ secrets.SSH_FOLDER }}  # The SSH user for your server (e.g., 'root' or 'username')
-            #   run: |
-            #     # Copy the contents of the dist folder to the server
-            #     rsync -avz --delete -e "ssh -i /tmp/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=no" dist/ $DO_USER@$DO_HOST:$DO_FOLDER  # Adjust path as necessary
+            - name: Deploy - Copy the contents of the dist folder to the server
+              # uses: easingthemes/ssh-deploy@main
+              # with:
+              #   SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+              #   ARGS: "-rlgoDzvc -- delete"
+              #   SOURCE: "dist/"
+              #   REMOTE_HOST: ${{ secrets.SSH_HOST }}
+              #   REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+              #   REMOTE_PORT: ${{ secrets.REMOTE_PORT}}
+              #   TARGET: ${{ secrets.SSH_FOLDER }}
+              #   SCRIPT_BEFORE: |
+              #       whoami
+              #       ls -al
+              #   SCRIPT_AFTER: |
+              #       whoami
+              #       ls -al
+              #       echo $RSYNC_STDOUT
+              run: |
+                # Copy the contents of the dist folder to the server
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa"  dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_FOLDER }}
                 
             - name: Restart Web Server 
               env: 
