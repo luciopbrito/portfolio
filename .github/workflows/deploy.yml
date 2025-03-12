@@ -47,6 +47,9 @@ jobs:
                 echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
                 chmod 600 /tmp/id_rsa
 
+            - name: Ensure SSH directory exists
+              run: mkdir -p ~/.ssh
+
             - name: Add SSH Host to Known Hosts
               run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
             
