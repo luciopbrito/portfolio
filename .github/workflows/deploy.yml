@@ -41,11 +41,11 @@ jobs:
             - name: Display structure of downloaded files
               run: ls -R dist
 
-            - name: Deploy to DigitalOcean
-              run: |
-                # Save the private SSH key to a file
-                echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
-                chmod 600 /tmp/id_rsa
+            # - name: Deploy to DigitalOcean
+            #   run: |
+            #     # Save the private SSH key to a file
+            #     echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
+            #     chmod 600 /tmp/id_rsa
                 
             - name: Copy the contents of the dist folder to the server
               uses: easingthemes/ssh-deploy@main
@@ -55,7 +55,7 @@ jobs:
                 SOURCE: "dist/"
                 REMOTE_HOST: ${{ secrets.SSH_HOST }}
                 REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-                # REMOTE_PORT: ${{vars. REMOTE_PORT}}
+                REMOTE_PORT: ${{ secrets.REMOTE_PORT}}
                 TARGET: ${{ secrets.SSH_FOLDER }}
             #   env:
             #     DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
