@@ -49,26 +49,19 @@ jobs:
 
             - name: Ensure SSH directory exists
               run: mkdir -p ~/.ssh
-
-            - name: Add SSH Host to Known Hosts
-              run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
             
             - name: Test SSH Connection
-              run: ssh -i /tmp/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
+              run: ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
             
             - name: Deploy - Copy the contents of the dist folder to the server
               run: |
                 # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa"  dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_FOLDER }}
+                rsync -avz --delete -e "ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }}"  dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_FOLDER }}
                 
             - name: Restart Web Server 
-              env: 
-                DO_HOST: ${{ secrets.SSH_HOST }}  # The hostname or IP address of your server
-                DO_USER: ${{ secrets.SSH_USERNAME }}  # The SSH user for your server (e.g., 'root' or 'username')
-                DO_RESTART_SERVER: ${{ secrets.SSS_RESTART_SERVER }}  # The SSH user for your server (e.g., 'root' or 'username')
               run: | 
                 # restart webserver
-                ssh -i /tmp/id_rsa $DO_USER@$DO_HOST "$DO_RESTART_SERVER"
+                ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "${{ secrets.SSS_RESTART_SERVER }}"
             
             - name: Clean up
               run: |
