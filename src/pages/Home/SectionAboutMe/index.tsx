@@ -2,7 +2,7 @@ import React from "react";
 import { S } from "./styles";
 import imgLucio from "@imgs/home/lucio-image2.png";
 import { Button } from "../../../components/Button";
-import LucioCV from "@documents/full_stack_pt.pdf";
+import LucioCV from "@documents/cv_lucio_brito.pdf";
 import { BsDownload } from "react-icons/bs";
 
 const SectionAboutMe: React.FC = () => {
