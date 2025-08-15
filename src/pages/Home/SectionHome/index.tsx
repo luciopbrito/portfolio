@@ -3,6 +3,7 @@ import { S } from "./styles";
 import imgLucio from "@imgs/home/lucio-image1.png";
 import { Button } from "../../../components/Button";
 import { LuSendHorizonal } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 interface SectionHomeProps {}
 
@@ -11,17 +12,19 @@ const SectionHome: React.FC<SectionHomeProps> = () => {
 		window.open("#contact", "_self");
 	};
 
+	const {t} = useTranslation();
+
 	return (
-		<S.Container id="start">
+		<S.Container id="home">
 			<S.ImageContainer $size="large" $img={imgLucio} />
 			<S.TextBoxContainer>
 				<div>
-					<S.Title>Lúcio Brito</S.Title>
-					<S.TextColorChanging>Desenvolvedor Web</S.TextColorChanging>
+					<S.Title>{t('pages.home.sections.home.title')}</S.Title>
+					<S.TextColorChanging>{t('pages.home.sections.home.position')}</S.TextColorChanging>
 				</div>
-				<p>Apaixonado por tecnologia. A vida precisa ser vivida!</p>
+				<p>{t('pages.home.sections.home.description')}</p>
 				<Button.Container onClick={() => handleGoContact()}>
-					<Button.Text>contato</Button.Text>
+					<Button.Text>{t('pages.home.sections.home.buttons.contact')}</Button.Text>
 					<Button.Icon>
 						<LuSendHorizonal />
 					</Button.Icon>

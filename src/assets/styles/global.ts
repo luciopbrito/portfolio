@@ -42,4 +42,9 @@ export default createGlobalStyle`
         font-weight: 400;
         text-align: justify;
     }
+
+    .rs-toggle-presentation {
+        background: ${Colors.LightBlue} !important;
+        background-color: ${Colors.LightBlue} !important;
+    }
 `;

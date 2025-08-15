@@ -6,4 +6,5 @@ export const Container = styled.ul`
 	align-items: center;
 	list-style: none;
 	justify-content: space-between;
+	margin: 0;
 `;
