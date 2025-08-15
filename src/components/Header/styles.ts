@@ -22,6 +22,25 @@ export const Container = styled.header`
 			color: white;
 		}
 	}
+
+	.container_nav {
+		display: flex;
+		gap: 2rem;
+		align-items: center;
+		justify-content:
+	}
+
+	@media ${device.mobileS} {
+		.container_nav > div:nth-child(1) {
+			order: 2;
+		}
+	}
+
+	@media ${device.laptop} {
+		.container_nav > div:nth-child(1) {
+			order: inherit;
+		}
+	}
 `;
 
 export const HeaderNavBar = styled.div`
@@ -29,6 +48,10 @@ export const HeaderNavBar = styled.div`
 		ul,
 		.icon-close {
 			display: none;
+		}
+
+		& {
+			height: 54px;
 		}
 
 		&.menu.on {
@@ -53,6 +76,11 @@ export const HeaderNavBar = styled.div`
 	}
 
 	@media ${device.laptop} {
+		& {
+			height: auto;
+		}
+
+
 		ul {
 			display: flex;
 		}

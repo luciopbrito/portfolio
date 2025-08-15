@@ -7,21 +7,24 @@ import {
 	AiOutlinePhone,
 } from "react-icons/ai";
 import { BiMap } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 const SectionContact: React.FC = () => {
+	const {t} = useTranslation();
+
 	return (
 		<S.Container id="contact">
-			<S.Title>Contato</S.Title>
+			<S.Title>{t('pages.home.sections.contact.title')}</S.Title>
 			<S.ContainerContact>
-				<S.ContentTitle>Entre em contato comigo!</S.ContentTitle>
+				<S.ContentTitle>{t('pages.home.sections.contact.container.title')}</S.ContentTitle>
 				<S.ContainerContent>
 					<div className="item">
 						<div>
 							<AiOutlinePhone className="icon" />
 						</div>
 						<div>
-							<S.Subtitle>Telefone</S.Subtitle>
-							<span>+55 11 94819-0733</span>
+							<S.Subtitle>{t('pages.home.sections.contact.container.telephone.subtitle')}</S.Subtitle>
+							<span>{t('pages.home.sections.contact.container.telephone.number')}</span>
 						</div>
 					</div>
 					<div className="item">
@@ -29,9 +32,9 @@ const SectionContact: React.FC = () => {
 							<AiFillLinkedin className="icon" />
 						</div>
 						<div>
-							<S.Subtitle>LinkedIn</S.Subtitle>
-							<a className="link" href="https://linkedin.com/in/lucio-brito">
-								https://linkedin.com/in/lucio-brito
+							<S.Subtitle>{t('pages.home.sections.contact.container.social_media.linkedIn.subtitle')}</S.Subtitle>
+							<a className="link" href={t('pages.home.sections.contact.container.social_media.linkedIn.href')}>
+								{t('pages.home.sections.contact.container.social_media.linkedIn.href')}
 							</a>
 						</div>
 					</div>
@@ -40,8 +43,8 @@ const SectionContact: React.FC = () => {
 							<AiOutlineMail className="icon" />
 						</div>
 						<div>
-							<S.Subtitle>Email</S.Subtitle>
-							<span>luciopereirabritoo@gmail.com</span>
+							<S.Subtitle>{t('pages.home.sections.contact.container.email.subtitle')}</S.Subtitle>
+							<span>{t('pages.home.sections.contact.container.email.href')}</span>
 						</div>
 					</div>
 					<div className="item">
@@ -49,9 +52,9 @@ const SectionContact: React.FC = () => {
 							<AiFillGithub className="icon" />
 						</div>
 						<div>
-							<S.Subtitle>GitHub</S.Subtitle>
-							<a className="link" href="https://github.com/luciopbrito/">
-								https://github.com/luciopbrito/
+							<S.Subtitle>{t('pages.home.sections.contact.container.social_media.github.subtitle')}</S.Subtitle>
+							<a className="link" href={t('pages.home.sections.contact.container.social_media.linkedIn.href')}>
+								{t('pages.home.sections.contact.container.social_media.github.href')}
 							</a>
 						</div>
 					</div>
@@ -60,8 +63,8 @@ const SectionContact: React.FC = () => {
 							<BiMap className="icon" />
 						</div>
 						<div>
-							<S.Subtitle>Localização</S.Subtitle>
-							<span>Brazil, Guarulhos - SP</span>
+							<S.Subtitle>{t('pages.home.sections.contact.container.location.name')}</S.Subtitle>
+							<span>{t('pages.home.sections.contact.container.location.address')}</span>
 						</div>
 					</div>
 				</S.ContainerContent>
