@@ -3,6 +3,7 @@ import { S } from "./styles";
 import { Button } from "../../../components/Button";
 import { BsArrowRight } from "react-icons/bs";
 import { Carousel } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface SectionProjectsProps {}
 
@@ -41,9 +42,11 @@ const SectionProjects: React.FC<SectionProjectsProps> = () => {
 		getRepositories();
 	}, []);
 
+	const {t} = useTranslation();
+
 	return (
 		<S.Container id="projects">
-			<S.Title>Projetos</S.Title>
+			<S.Title>{t('pages.home.sections.projects.title')}</S.Title>
 			<Carousel data-bs-theme="dark" indicators={false} interval={null}>
 				{state.repositories.map((repos) => {
 					return (
@@ -56,7 +59,7 @@ const SectionProjects: React.FC<SectionProjectsProps> = () => {
 									<Button.Container
 										onClick={() => window.open(repos.html_url, "_blank")}
 									>
-										<Button.Text>abrir</Button.Text>
+										<Button.Text>{t('pages.home.sections.projects.buttons.open')}</Button.Text>
 										<Button.Icon>
 											<BsArrowRight style={{ color: "black" }} />
 										</Button.Icon>
