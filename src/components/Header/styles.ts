@@ -27,7 +27,6 @@ export const Container = styled.header`
 		display: flex;
 		gap: 2rem;
 		align-items: center;
-		justify-content:
 	}
 
 	@media ${device.mobileS} {

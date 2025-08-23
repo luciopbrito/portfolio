@@ -37,7 +37,7 @@
                             }
                         },
                         "email": {
-                            "subtitle": "Email",
+                            "subtitle": "E-mail",
                             "href": "luciopereirabritoo@gmail.com"
                         },
                         "location": {
@@ -63,7 +63,14 @@
             "about_me": "Sobre mim",
             "skills": "Skills",
             "projects": "Projetos",
-            "contact": "Contato"
+            "contact": "Contato",
+            "buttons": {
+                "change_language": {
+                    "pt": "Português",
+                    "en": "Inglês",
+                    "placeholder": "Idioma"
+                }
+            }
         }
     }
 }

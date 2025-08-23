@@ -6,18 +6,23 @@ import { GiHamburgerMenu as IconHamburger } from "react-icons/gi";
 import { BsXLg as IconClose } from "react-icons/bs";
 import { MenuContext } from "../../contexts/Menu";
 import { IClassName } from "../../global";
-import { Toggle } from "rsuite";
-import 'rsuite/Toggle/styles/index.css';
+import { SelectPicker } from "rsuite";
+import 'rsuite/SelectPicker/styles/index.css';
 import { useTranslation } from "react-i18next";
 
 interface HeaderProps extends IClassName {}
 
 const Header: React.FC<HeaderProps> = ({ className }) => {
 	const { isMenuOpen, toggleMenu } = useContext(MenuContext);
-	const {i18n} = useTranslation();
+	const {t, i18n} = useTranslation();
 
-	const onChangeLanguage = (changed: boolean) => {
-		changed ? i18n.changeLanguage('en') : i18n.changeLanguage('pt')
+	const datas = [
+		{label: t('pages.header.buttons.change_language.pt'), value: 'pt'}, 
+		{label: t('pages.header.buttons.change_language.en'), value: 'en'}
+	]
+
+	const onChangeLanguage = (value: string) => {
+		i18n.changeLanguage(value)
 	}
 
 	return (
@@ -32,7 +37,15 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
 						<IconClose className="icon-close" />
 						<Navbar />
 					</HeaderNavBar>
-					<Toggle size="lg" onChange={(checked) => onChangeLanguage(checked)} checkedChildren="EN" unCheckedChildren="PT" defaultChecked />
+					<SelectPicker 
+						size='lg'
+						data={datas.map(item => ({label: item.label, value: item.value}))}
+						onChange={(value) => onChangeLanguage(value!)}
+						searchable={false}
+						defaultValue="en"
+						cleanable={false}
+						placeholder={t('pages.header.buttons.change_language.placeholder')}
+					/>
 				</div>
 			</div>
 		</Container>
