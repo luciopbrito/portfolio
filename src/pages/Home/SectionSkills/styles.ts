@@ -10,6 +10,10 @@ const Container = styled.div`
 	align-items: center;
 	gap: 5rem;
 	padding: 10rem 0;
+	
+	@media ${device.laptop} {
+		height: 100vh;
+	}
 `;
 
 const Skill = styled.details`

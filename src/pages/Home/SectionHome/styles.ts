@@ -8,13 +8,14 @@ const Container = styled.div`
 	justify-content: center;
 	gap: 4.6rem;
 	padding: 10rem 0;
-
+		
 	@media ${device.mobileS} {
 		flex-direction: column;
 		align-items: center;
 	}
-
+	
 	@media ${device.laptop} {
+		height: 100vh;
 		flex-direction: row;
 	}
 `;
