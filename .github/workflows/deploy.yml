@@ -1,9 +1,9 @@
 name: Deploy Porfolio on VPS
 
 on:
-    push:
+    push: 
         branches:
-            - main
+            - release/*
     workflow_dispatch: 
 
 jobs:
