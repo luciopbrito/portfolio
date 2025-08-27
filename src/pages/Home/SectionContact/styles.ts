@@ -9,6 +9,10 @@ const Container = styled.div`
 	align-items: center;
 	padding: 10rem 0;
 	gap: 10rem;
+	
+	@media ${device.laptop} {
+		height: 100vh;
+	}
 `;
 
 const ContainerContact = styled.div`

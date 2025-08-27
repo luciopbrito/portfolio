@@ -1,0 +1,76 @@
+{
+    "pages": {
+        "home": {
+            "sections": {
+                "home": {
+                    "title": "Lúcio Brito",
+                    "position": "Desenvolvedor Web",
+                    "description": "Apaixonado por tecnologia. A vida precisa ser vivida!",
+                    "buttons": {
+                        "contact": "contato"
+                    }
+                },
+                "about_me": {
+                    "title": "Sobre mim",
+                    "subtitle": "Apresentação",
+                    "description": "Desde 2020, atuo como Desenvolvedor Full Stack. Inicialmente como freelancer para empresas de <strong>Business Intelligence</strong> e <strong>Agronegócio</strong>, com foco em ASP.NET Core e Frameworks JavaScript (Angular e React). Atualmente, exerço o cargo de Analista Desenvolvedor .NET Pleno no TCESP.\n\nEmbora meus trabalhos reais tenham iniciado em 2020, meu interesse pela tecnologia vem desde 2019, ainda como gremista da E.E. Érico Veríssimo. Meu objetivo é disponibilizar conhecimento e acesso à tecnologia por meio de exercícios que envolvam a divulgação e a realização de projetos reais, com ênfase na evolução técnica dos envolvidos.\n\nSou curioso por natureza e, em horas vagas, gosto de aplicar meu conhecimento em projetos pessoais. Busco desafios que impulsionem minha carreira e me motivem a criar softwares e soluções robustas.",
+                    "buttons": {
+                        "download_cv": "Baixar CV"
+                    }
+                },
+                "contact": {
+                    "title": "Contato",
+                    "container": {
+                        "title": "Entre em contato comigo!",
+                        "telephone": {
+                            "subtitle": "Telefone",
+                            "number": "+55 11 94819-0733"  
+                        },
+                        "social_media": {
+                            "linkedIn": {
+                                "subtitle": "LinkedIn",
+                                "href": "https://linkedin.com/in/lucio-brito"
+                            },
+                            "github": {
+                                "subtitle": "GitHub",
+                                "href": "https://github.com/luciopbrito/"
+                            }
+                        },
+                        "email": {
+                            "subtitle": "E-mail",
+                            "href": "luciopereirabritoo@gmail.com"
+                        },
+                        "location": {
+                            "name": "Localização",
+                            "address": "Brasil, Guarulhos - SP"
+                        }
+                    }
+                },
+                "projects": {
+                    "title": "Projetos",
+                    "buttons": {
+                        "open": "abrir"
+                    }
+                },
+                "skills": {
+                    "title": "Skills",
+                    "subtitle": "Minhas tecnologias"
+                }
+            }
+        },
+        "header": {
+            "home": "Inicio",
+            "about_me": "Sobre mim",
+            "skills": "Skills",
+            "projects": "Projetos",
+            "contact": "Contato",
+            "buttons": {
+                "change_language": {
+                    "pt": "Português",
+                    "en": "Inglês",
+                    "placeholder": "Idioma"
+                }
+            }
+        }
+    }
+}

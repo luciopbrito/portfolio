@@ -1,15 +1,18 @@
 import React from "react";
 import { S } from "./styles";
 import { CollapseDetails } from "../../../components/CollapseDetails";
+import { useTranslation } from "react-i18next";
 
 const SectionSkills: React.FC = () => {
 	const brackets = "{ }";
 
+	const {t} = useTranslation();
+
 	return (
 		<S.Container id="skills">
 			<S.ContainerTitles>
-				<S.Title>Skills</S.Title>
-				<S.Subtitle>Minhas tecnologias</S.Subtitle>
+				<S.Title>{t('pages.home.sections.skills.title')}</S.Title>
+				<S.Subtitle>{t('pages.home.sections.skills.subtitle')}</S.Subtitle>
 			</S.ContainerTitles>
 			<S.ContainerSkills>
 				<CollapseDetails.Container>
