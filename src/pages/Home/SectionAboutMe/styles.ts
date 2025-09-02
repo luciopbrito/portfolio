@@ -9,8 +9,13 @@ const Container = styled.div`
 	padding: 10rem 0;
 	gap: 4rem;
 	
+	@media ${device.mobileS} {
+		padding-top: 20rem;
+	}
+
 	@media ${device.laptop} {
 		height: 100vh;
+		padding-top: auto;
 	}
 `;
 
