@@ -18,7 +18,7 @@ const Container = styled.div`
 	@media ${device.laptop} {
 		height: 100vh;
 		flex-direction: row;
-		padding-top: auto;
+		padding-top: 10rem;
 	}
 `;
 
