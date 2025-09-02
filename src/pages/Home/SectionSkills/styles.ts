@@ -17,7 +17,7 @@ const Container = styled.div`
 
 	@media ${device.laptop} {
 		height: 100vh;
-		padding-top: auto;
+		padding-top: 10rem;
 	}
 `;
 
