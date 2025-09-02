@@ -53,7 +53,7 @@ const SectionContact: React.FC = () => {
 						</div>
 						<div>
 							<S.Subtitle>{t('pages.home.sections.contact.container.social_media.github.subtitle')}</S.Subtitle>
-							<a className="link" href={t('pages.home.sections.contact.container.social_media.linkedIn.href')}>
+							<a className="link" href={t('pages.home.sections.contact.container.social_media.github.href')}>
 								{t('pages.home.sections.contact.container.social_media.github.href')}
 							</a>
 						</div>
