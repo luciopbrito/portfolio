@@ -10,9 +10,14 @@ const Container = styled.div`
 	align-items: center;
 	gap: 5rem;
 	padding: 10rem 0;
-	
+
+	@media ${device.mobileS} {
+		padding-top: 20rem;
+	}
+
 	@media ${device.laptop} {
 		height: 100vh;
+		padding-top: auto;
 	}
 `;
 
