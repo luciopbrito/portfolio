@@ -1,71 +1,57 @@
-name: Deploy Porfolio on VPS
+name: Deploy Portfolio on VPS
 
 on:
-    push: 
-        branches:
-            - release/*
-    workflow_dispatch: 
+  push:
+    branches:
+      - release/*
+  workflow_dispatch:
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-            
-            - name: build application and dependencies
-              uses: actions/setup-node@v4
-              with:
-                node-version: '18.18.0'
-            - run: npm ci
-            - run: npm run build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-            - name: Upload dist folder as artifact
-              uses: actions/upload-artifact@v4
-              with:
-                name: dist
-                path: dist/
-    deploy:
-        runs-on: ubuntu-latest
-        needs: build
+      - name: Build application and dependencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.18.0'
+        run: npm ci
+        run: npm run build
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+      - name: Upload dist folder as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
 
-            - name: Download dist artifact
-              uses: actions/download-artifact@v4
-              with:
-                name: dist
-                path: dist
-            - name: Display structure of downloaded files
-              run: ls -R dist
+  save-ssh:
+    uses: luciopbrito/actions/.github/workflows/ssh/save-ssh-key.yml@main
+    secrets: inherit
 
-            - name: save ssh key
-              run: |
-                # Save the private SSH key to a file
-                echo -e "${{ secrets.SSH_KEY }}" > /tmp/id_rsa
-                chmod 600 /tmp/id_rsa
+  deploy:
+    runs-on: ubuntu-latest
+    needs: save-ssh
+    steps:
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
 
-            - name: Ensure SSH directory exists
-              run: mkdir -p ~/.ssh
-            
-            - name: Test SSH Connection
-              run: ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
-            
-            - name: Deploy - Copy the contents of the dist folder to the server
-              run: |
-                # Copy the contents of the dist folder to the server
-                rsync -avz --delete -e "ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }}"  dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_FOLDER }}
-                
-            - name: Restart Web Server 
-              run: | 
-                # restart webserver
-                ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "${{ secrets.SSS_RESTART_SERVER }}"
-            
-            - name: Clean up
-              run: |
-                # Clean up
-                rm /tmp/id_rsa
+      - name: Display structure of downloaded files
+        run: ls -R dist
 
-        
+      - name: Deploy - Copy the contents of the dist folder to the server
+        run: |
+          # Copy the contents of the dist folder to the server
+          rsync -avz --delete -e "ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }}"  dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_FOLDER }}
+
+      - name: Restart Web Server
+        run: |
+          # Restart the webserver
+          ssh -i /tmp/id_rsa -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "${{ secrets.SSS_RESTART_SERVER }}"
+
+  clean-up-save-ssh:
+    uses: luciopbrito/actions/.github/workflows/clean-up-ssh-key-path.yml@main
